@@ -4,7 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
-const dbString = 'mongodb+srv://christopheryi319:Mo50wb3rkcg@cluster0.ycbrky3.mongodb.net/?retryWrites=true&w=majority';
+require('dotenv').config()
+
+const dbString = process.env.MONGO_URI;
 
 MongoClient.connect( dbString, { useUnifiedTopology: true })
     .then(client => {
